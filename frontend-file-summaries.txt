@@ -1,0 +1,8 @@
+{
+  "frontend/src/App.tsx": "Main application component that renders the SnippetViewerPage as the primary view.",
+  "frontend/src/pages/SnippetViewerPage.tsx": "Complete snippet viewer page displaying AndroidManifest.xml and Kotlin service code with descriptions, usage notes, and structured layout.",
+  "frontend/src/components/CodeSnippetBlock.tsx": "Reusable code block component with syntax highlighting, copy-to-clipboard functionality, and language/filename display.",
+  "frontend/src/index.css": "Global styles with warm amber/orange OKLCH color system for developer-focused aesthetic in both light and dark modes.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with custom color tokens, developer-friendly monospace fonts, and consistent spacing/radius values.",
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder file for React Query hooks (no backend queries needed for static snippet display)."
+}

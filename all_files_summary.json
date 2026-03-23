@@ -1,0 +1,17 @@
+{
+  "backend/main.mo": "Empty Motoko actor with no methods.",
+  "feature_evidence.json": "Feature report describing required frontend pages, components, and theming with associated files and metadata.",
+  "frontend-file-summaries.txt": "Text file containing prewritten summaries for key frontend files.",
+  "frontend/index.css": "Tailwind base styles defining OKLCH color variables and dark‑mode overrides for UI theming.",
+  "frontend/index.html": "HTML entry point mounting the React app and loading main.tsx.",
+  "frontend/src/App.tsx": "Root React component that renders SnippetViewerPage.",
+  "frontend/src/components/CodeSnippetBlock.tsx": "Reusable code block component with syntax highlighting layout and copy‑to‑clipboard behavior.",
+  "frontend/src/hooks/useActor.ts": "Hook that creates and manages a backend actor instance and refreshes it when identity changes.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Comprehensive Internet Identity auth provider and hook managing login, stored identities, and status.",
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder export for query hooks due to static data.",
+  "frontend/src/index.css": "Global Tailwind theme using warm amber/orange OKLCH colors and code‑block styling.",
+  "frontend/src/main.tsx": "Application bootstrap wiring React, QueryClient, and InternetIdentityProvider.",
+  "frontend/src/pages/SnippetViewerPage.tsx": "Page rendering description text and two code snippets for AndroidManifest and Kotlin NotificationListenerService.",
+  "frontend/tailwind.config.js": "Configures Tailwind with dark mode, custom colors, fonts, animations, and plugins for typography, container queries, and animations.",
+  "project_state.json": "Defines project metadata, existing features, and a pending feature request for an Android auto-reply NotificationListenerService app."
+}

@@ -1,0 +1,47 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-frontend-page-that-displays-the-provided-android-manifest-service-declaration-and-the-provided-kotlin-instanotificationservice-notificationlistenerservice-code-as-formatted-syntax-highlighted-code-blocks-including-a-one-click-copy-button-for-each-snippet",
+      "featureTitle": "Create a frontend page that displays the provided Android Manifest service declaration and the provided Kotlin `InstaNotificationService : NotificationListenerService` code as formatted, syntax-highlighted code blocks, including a one-click \"Copy\" button for each snippet.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/CodeSnippetBlock.tsx",
+        "frontend/src/main.tsx",
+        "frontend/src/pages/SnippetViewerPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-coherent-visual-theme-across-the-page-colors-typography-spacing-and-component-styling-suitable-for-a-developer-focused-code-snippet-viewer-avoiding-blue-purple-as-primary-brand-colors",
+      "featureTitle": "Apply a coherent visual theme across the page (colors, typography, spacing, and component styling) suitable for a developer-focused code snippet viewer, avoiding blue/purple as primary brand colors.",
+      "files": [
+        "frontend/src/components/CodeSnippetBlock.tsx",
+        "frontend/src/index.css",
+        "frontend/src/pages/SnippetViewerPage.tsx",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

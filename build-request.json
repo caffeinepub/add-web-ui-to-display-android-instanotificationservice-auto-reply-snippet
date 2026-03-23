@@ -1,0 +1,70 @@
+{
+  "kind": "build_request",
+  "title": "Add web UI to display Android InstaNotificationService auto-reply snippet",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a frontend page that displays the provided Android Manifest service declaration and the provided Kotlin `InstaNotificationService : NotificationListenerService` code as formatted, syntax-highlighted code blocks, including a one-click \"Copy\" button for each snippet.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2",
+          "msg-3"
+        ],
+        "quotes": [
+          "<service\n    android:name=\".InstaNotificationService\"\n    android:permission=\"android.permission.BIND_NOTIFICATION_LISTENER_SERVICE\">\n    <intent-filter>\n        <action android:name=\"android.service.notification.NotificationListenerService\" />\n    </intent-filter>\n</service>",
+          "class InstaNotificationService : NotificationListenerService() {\n\n    override fun onNotificationPosted(sbn: StatusBarNotification) {\n        if (sbn.packageName == \"com.instagram.android\") {\n            val extras = sbn.notification.extras\n            val message = extras.getString(\"android.text\") ?: return\n\n            if (!message.contains(\"You\")) {\n                sendAutoReply(sbn)\n            }\n        }\n    }\n\n    private fun sendAutoReply(sbn: StatusBarNotification) {\n        val reply = \"Hey! I’ll reply soon 😊\"\n\n        val action = sbn.notification.actions?.find {\n            it.title.toString().equals(\"Reply\", true)\n        }\n\n        val intent = Intent()\n        val bundle = Bundle()\n        bundle.putCharSequence(\"android.intent.extra.TEXT\", reply)\n        intent.putExtras(bundle)\n\n        action?.actionIntent?.send(\n            applicationContext, 0, intent\n        )\n    }\n}"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The page shows two clearly labeled sections: one for the AndroidManifest.xml snippet and one for the Kotlin service class snippet.",
+        "Each snippet is rendered in a monospace code block with preserved whitespace/indentation.",
+        "Each snippet has a \"Copy\" control that copies the exact snippet text to the clipboard.",
+        "All user-facing labels and helper text are in English."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Apply a coherent visual theme across the page (colors, typography, spacing, and component styling) suitable for a developer-focused code snippet viewer, avoiding blue/purple as primary brand colors.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "Use English for any user-facing text in the build request."
+        ]
+      },
+      "acceptanceCriteria": [
+        "The UI uses a consistent, developer-oriented aesthetic (e.g., neutral/dark or warm monochrome) applied to headers, backgrounds, code blocks, and buttons.",
+        "Primary colors are not blue/purple.",
+        "Theme is applied consistently across the page layout and interactive elements."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not implement Android/NotificationListenerService functionality inside this Internet Computer app; only present the provided snippets in the web UI.",
+    "Use English for any user-facing text."
+  ],
+  "nonGoals": [
+    "Building an actual Android APK or integrating with Android notification APIs.",
+    "Sending real Instagram replies or interacting with Instagram services."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [
+      "Use English for any user-facing text."
+    ],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

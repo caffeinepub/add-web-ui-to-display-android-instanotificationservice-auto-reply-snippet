@@ -1,0 +1,68 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-10T08:29:56.696Z",
+  "summary": "A new frontend snippet viewer page and reusable code block component were added with copy-to-clipboard controls and a warm amber/orange Tailwind theme. However, the code snippets do not appear to be syntax-highlighted, and several unrelated Internet Identity / actor / React Query scaffolding files were added that were not requested.",
+  "missing_requirements": [
+    {
+      "id": "REQ-1",
+      "requirement": "Display the AndroidManifest.xml snippet and Kotlin InstaNotificationService code as formatted, syntax-highlighted code blocks.",
+      "reason": "The code blocks render plain text within <pre><code> without any syntax-highlighting library/component or token-based styling shown in the diff summary.",
+      "evidence": [
+        "frontend/src/components/CodeSnippetBlock.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Internet Identity authentication provider and related login/identity management hook added.",
+      "reason": "BuildRequest only asks for a static snippet viewer UI; no authentication or Internet Identity integration is requested.",
+      "evidence": [
+        "frontend/src/hooks/useInternetIdentity.ts",
+        "frontend/src/main.tsx"
+      ]
+    },
+    {
+      "description": "Backend actor scaffolding and frontend actor hook to create actors with identity/anonymous mode.",
+      "reason": "BuildRequest does not request any backend functionality or actor integration; the UI can be fully static.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/hooks/useActor.ts"
+      ]
+    },
+    {
+      "description": "React Query client/provider setup and query invalidation logic added.",
+      "reason": "BuildRequest does not require data fetching/caching; snippets are embedded in the frontend.",
+      "evidence": [
+        "frontend/src/main.tsx",
+        "frontend/src/hooks/useActor.ts",
+        "frontend/src/hooks/useQueries.ts"
+      ]
+    },
+    {
+      "description": "Project metadata includes a new feature request to implement the actual Android NotificationListenerService logic.",
+      "reason": "This contradicts the stated constraints/non-goals (do not implement Android/NotificationListenerService functionality inside this app; do not build an APK or integrate with Android APIs).",
+      "evidence": [
+        "project_state.json"
+      ]
+    }
+  ],
+  "confidence": 0.74,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/CodeSnippetBlock.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/SnippetViewerPage.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

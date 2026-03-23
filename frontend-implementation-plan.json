@@ -1,0 +1,75 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Developer-focused snippet viewer for InstaNotificationService auto-reply code",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Add a page that renders the Android Manifest service declaration and Kotlin NotificationListenerService code as labeled, syntax-highlighted blocks with one-click copy per snippet.",
+      "acceptanceCriteria": [
+        "The page shows two clearly labeled sections: one for the AndroidManifest.xml snippet and one for the Kotlin service class snippet.",
+        "Each snippet is rendered in a monospace code block with preserved whitespace/indentation.",
+        "Each snippet has a \"Copy\" control that copies the exact snippet text to the clipboard.",
+        "All user-facing labels and helper text are in English."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/package.json",
+          "operation": "create",
+          "description": "Add frontend dependencies needed for syntax highlighting (e.g., Prism) and ensure the build includes them for client-side highlighted rendering."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the app root that renders the required snippet viewer page as the primary UI (no Android functionality; display-only)."
+        },
+        {
+          "path": "frontend/src/pages/SnippetViewerPage.tsx",
+          "operation": "create",
+          "description": "Implement the snippet viewer page with two clearly labeled sections (AndroidManifest.xml and Kotlin service class) and English helper text."
+        },
+        {
+          "path": "frontend/src/components/CodeSnippetBlock.tsx",
+          "operation": "create",
+          "description": "Create a reusable code-snippet block component that preserves whitespace/indentation, applies syntax highlighting, and provides a one-click Copy button using the Clipboard API to copy the exact raw snippet text."
+        },
+        {
+          "path": "frontend/src/main.tsx",
+          "operation": "modify",
+          "description": "Ensure the app mounts the new App component and continues to import the global stylesheet required for the snippet viewer UI."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Apply a coherent developer-oriented theme across the snippet viewer (layout, typography, code block styling, and button styling) without blue/purple as primary colors.",
+      "acceptanceCriteria": [
+        "The UI uses a consistent, developer-oriented aesthetic (e.g., neutral/dark or warm monochrome) applied to headers, backgrounds, code blocks, and buttons.",
+        "Primary colors are not blue/purple.",
+        "Theme is applied consistently across the page layout and interactive elements."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Define global theme tokens and base styles for a developer-focused aesthetic (neutral/dark or warm monochrome), ensuring primary accents avoid blue/purple and styling is consistent for headers, backgrounds, code blocks, and buttons."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Adjust/extend Tailwind theme mappings (via existing CSS-variable color system) to align with the new non-blue/purple primary palette and consistent spacing/typography for the snippet viewer."
+        },
+        {
+          "path": "frontend/src/pages/SnippetViewerPage.tsx",
+          "operation": "modify",
+          "description": "Apply the theme consistently in the page layout (container spacing, headings, section chrome) and ensure interactive controls (Copy buttons) match the developer-oriented styling."
+        },
+        {
+          "path": "frontend/src/components/CodeSnippetBlock.tsx",
+          "operation": "modify",
+          "description": "Ensure code block visuals (background, border, font, line-height) and Copy button styling match the global theme and remain consistent across both snippets."
+        }
+      ]
+    }
+  ]
+}
